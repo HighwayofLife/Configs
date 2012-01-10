@@ -1,0 +1,16 @@
+#export TERM=xterm-color
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%C%a %{g}]'
+#shelltitle "$ |bash"
+#defscrollback 10000
+#termcapinfo xterm ti@:te@
+
+
+caption always '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]'
+#backtick 1 5 5 synco status
+#hardstatus alwayslastline "%{= B}Current Checkout:%{= W} %1`"
+
+vbell off # Make the screen stop flashing at you
+defscrollback 30000 # Use a 30000-line scrollback buffer
+termcapinfo xterm ti@:te@
+
