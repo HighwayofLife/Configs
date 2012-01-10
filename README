@@ -1,0 +1,2 @@
+Run the install script to backup existing config files and link the new ones.
+The .gitconfig file is copied rather than linked since it is likely to contain tokens and other private information
