@@ -1,0 +1,9 @@
+[color]
+	ui = auto
+[alias]
+	st = status
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative
+	last = cat-file commit HEAD
+	co = checkout --
+[core]
+	excludesfile = ~/.gitignore
