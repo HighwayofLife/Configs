@@ -12,7 +12,6 @@ linkfile() {
 
 		ln -s "$SELF_PATH/$FILE" ~/$FILE
 		echo "ln -s $SELF_PATH/$FILE ~/$FILE"
-		echo "~/$FILE linked"
 	else
 		echo "~/$FILE is already linked"
 	fi

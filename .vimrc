@@ -36,6 +36,9 @@ set smartcase
 " Set F2 as the paste toggle key for pasting from clipboard
 set pastetoggle=<F2>
 
+" gVim: Allow all operations such as yy, D, and P to work with the clipboard. No need to prefix with "* or "+.
+set clipboard=unnamed
+
 " Allow backspace over everything
 set backspace=indent,eol,start
 " Remember up to 100 : (colon) history commands
