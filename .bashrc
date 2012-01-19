@@ -24,12 +24,11 @@ set_screen_path() {
 
 alias ll='ls -lAhp'
 alias directory_tree="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias vi=vim
 
-HUB=`which hub`
-if ((! -z $HUB)) && ((-x $HUB)) ; then
-	alias git=hub
-fi
+hash tree 2>&- || { alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"; }
+hash hub 2>&- && { alias git=hub; }
+hash brew 2>&- && { . `brew --prefix`/etc/bash_completion; }
 
 case $TERM in
     screen*)
@@ -39,8 +38,3 @@ case $TERM in
 esac
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
-
-BREW=`which brew`
-if ((! -z $BREW)) && ((-x $BREW)) ; then
-	. `brew --prefix`/etc/bash_completion
-fi
