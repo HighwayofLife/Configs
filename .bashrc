@@ -26,7 +26,10 @@ alias ll='ls -lAhp'
 alias directory_tree="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
-alias git=hub
+HUB=`which hub`
+if ((! -z $HUB)) && ((-x $HUB)) ; then
+	alias git=hub
+fi
 
 case $TERM in
     screen*)
@@ -37,7 +40,7 @@ esac
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
+BREW=`which brew`
+if ((! -z $BREW)) && ((-x $BREW)) ; then
 	. `brew --prefix`/etc/bash_completion
 fi
-
