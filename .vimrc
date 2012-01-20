@@ -56,7 +56,7 @@ set wildmenu
 set scrolloff=5
 
 " Automatically strip white-space from the end of lines for all PHP files on save
-autocmd BufWritePre *.php :%s/\s\+$//e
+autocmd FileType php :%s/\s\+$//e
 
 " Visual shifting - Does not exit visual mode
 vnoremap < <gv
@@ -65,4 +65,8 @@ vnoremap > >gv
 " Remap shift+k to split the text from the current line
 nnoremap <S-k> i<CR><Esc>
 
+" run file with PHP CLI (CTRL-M)
+"autocmd FileType php noremap <C-M> :w!<CR>:!$HOME/bin/php %<CR>
 
+" PHP parser check (CTRL-L)
+"autocmd FileType php noremap <C-L> :!$HOME/bin/php -l %<CR>

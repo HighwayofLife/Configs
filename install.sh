@@ -20,6 +20,7 @@ linkfile() {
 linkfile ".bashrc"
 linkfile ".vimrc"
 linkfile ".screenrc"
+linkfile ".gvimrc"
 
 if [ -e ~/.gitconfig ]; then
 	read -p "Do you wish to backup your ~/.gitconfig file and copy over a new one? [y/n]: " gc
