@@ -29,7 +29,7 @@ alias directory_tree="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; 
 hash mvim 2>&- && { alias vi=mvim; } || { alias vi=vim; }
 
 # mvim command will return to the Terminal upon exit
-hash mvim 2>&- && { alias mvim='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'; }
+hash mvim 2>&- && { alias mvim='mvim --nomru -c "au VimLeave * !open -a Terminal"'; }
 
 hash tree 2>&- || { alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"; }
 hash hub 2>&- && { alias git=hub; }
