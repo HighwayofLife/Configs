@@ -1,5 +1,5 @@
 " Turn on line numbers
-set number
+"set number
 
 " Change colorscheme
 colorscheme slate
@@ -12,9 +12,6 @@ set lines=60
 
 " Sets the font and size
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-
-" Sets the percent transparency
-set transparency=10
 
 " Turn spell checking on for gvim
 set spell spelllang=en_us
