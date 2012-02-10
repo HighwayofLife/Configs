@@ -37,12 +37,14 @@ set smartcase
 set pastetoggle=<F2>
 
 " gVim: Allow all operations such as yy, D, and P to work with the clipboard. No need to prefix with "* or "+.
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Allow backspace over everything
 set backspace=indent,eol,start
+
 " Remember up to 100 : (colon) history commands
 set history=100
+
 " Always show status line, even for one window
 set laststatus=2
 
@@ -55,9 +57,6 @@ set wildmenu
 " Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=5
 
-" Automatically strip white-space from the end of lines for all PHP files on save
-autocmd FileType php :%s/\s\+$//e
-
 " Visual shifting - Does not exit visual mode
 vnoremap < <gv
 vnoremap > >gv
@@ -65,8 +64,5 @@ vnoremap > >gv
 " Remap shift+k to split the text from the current line
 nnoremap <S-k> i<CR><Esc>
 
-" run file with PHP CLI (CTRL-M)
-"autocmd FileType php noremap <C-M> :w!<CR>:!$HOME/bin/php %<CR>
-
-" PHP parser check (CTRL-L)
-"autocmd FileType php noremap <C-L> :!$HOME/bin/php -l %<CR>
+" Load the PHP .vimrc settings
+autocmd FileType source ~/.vim/phprc.vim

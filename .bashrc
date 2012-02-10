@@ -1,10 +1,13 @@
 export EDITOR="vim"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export PS1='\[\e[1;37m\][\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;37m\]][\[\e[1;33m\]$(parse_git_branch)\[\e[1;37m\]]$ \[\e[0m\]'
+export PS1='\[\e[1;37m\][\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;37m\]]$(parse_git_branch)$ \[\e[0m\]'
 
 parse_git_branch() {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+	BRANCH=$( git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' )
+	if [ -n "$BRANCH" ]; then
+		printf "\e[1;33m[$BRANCH]\e[1;37m"
+	fi
 }
 
 pgrep() {
@@ -43,3 +46,4 @@ case $TERM in
 esac
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+export PATH=$PATH:/Users/dalewis/Sites/Bones/Drupal-HD/scripts/drush
