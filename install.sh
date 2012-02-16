@@ -2,12 +2,19 @@
 
 SELF_PATH=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
+read -p "Do you wish to backup your current configs? (They will be appended with .bak extension)" bk
+case $bk in 
+	y|Y) BACKUP_FILES='true';;
+esac
+
 linkfile() {
 	FILE=$1
 	if [ ! -h "~/$FILE" ]; then
-		if [ -e "~/$FILE" ]; then
+		if [ -e "~/$FILE" && -n "$BACKUP_FILES" ]; then
 			echo "Backing up ~/$FILE to ~/$FILE.bak"
 			mv ~/$FILE ~/$FILE.bak
+		else
+			rm ~/$FILE
 		fi
 
 		ln -s "$SELF_PATH/$FILE" ~/$FILE
