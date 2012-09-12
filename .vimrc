@@ -2,16 +2,19 @@ syntax on
 
 filetype on
 au BufNewFile,BufRead *.bkp set filetype=php
+au BufNewFile,BufRead *.json* set filetype=javascript
 
 " Highlight search results
 set hlsearch
 
-set noexpandtab
+set expandtab
 set copyindent
 set preserveindent
 set softtabstop=0
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
+
+set softtabstop=2 "Makes the spaces feel like real tabs
 
 set autoindent
 set number

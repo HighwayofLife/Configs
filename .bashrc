@@ -1,14 +1,16 @@
 export EDITOR="vim"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export PS1='\[\e[1;37m\][\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;37m\]]$(parse_git_branch)$ \[\e[0m\]'
 
 parse_git_branch() {
 	BRANCH=$( git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' )
 	if [ -n "$BRANCH" ]; then
-		printf "\e[1;33m[$BRANCH]\e[1;37m"
+		#echo "\e[1;33m[$BRANCH]\e[1;37m"
+		echo "[$BRANCH]"
 	fi
 }
+
+export PS1='\[\e[1;37m\][\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;37m\]]$(parse_git_branch)$ \[\e[0m\]'
 
 pgrep() {
 	ps aux | grep $1 | grep -v grep
@@ -46,6 +48,7 @@ alias l='ls -CF'
 
 alias directory_tree="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
+
 # Short command vi will open macvim if it exists, else it will alias to vim
 hash mvim 2>&- && { alias vi=mvim; } || { alias vi=vim; }
 
@@ -64,4 +67,4 @@ case $TERM in
 esac
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
-export PATH=$PATH:/Users/dalewis/Sites/Bones/Drupal-HD/scripts/drush
+export PATH=$PATH:/Users/dalewis/.drush/drush
