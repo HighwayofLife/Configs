@@ -3,6 +3,12 @@ syntax on
 filetype on
 au BufNewFile,BufRead *.bkp set filetype=php
 au BufNewFile,BufRead *.json* set filetype=javascript
+au BufNewFile,BufRead *.erb set filetype=ruby
+au BufNewFile,BufRead Vagrantfile set filetype=ruby
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+match Todo /\s\+$/
 
 " Highlight search results
 set hlsearch

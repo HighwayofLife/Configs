@@ -47,7 +47,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias directory_tree="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-
+alias sed="/usr/local/bin/gsed"
 
 # Short command vi will open macvim if it exists, else it will alias to vim
 hash mvim 2>&- && { alias vi=mvim; } || { alias vi=vim; }
@@ -63,7 +63,20 @@ case $TERM in
     screen*)
     PROMPT_COMMAND=$PROMPT_COMMAND;set_screen_path
    export GSTATUS=$(gitprompt.pl c=%[%e[38\;5\;10m u=%[%e[33m f=%[%e[38\;5\;15m statuscount=1)
-    ;;  
+    ;;
 esac
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+export PATH=$PATH:$HOME/.drush/drush
+export PATH=$PATH:/usr/local/share/npm/bin
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export OS_USERNAME=lewid090
+
+# With Keystone you pass the keystone password.
+echo "Please enter your OpenStack Password: "
+read -s OS_PASSWORD_INPUT
+export OS_PASSWORD=$OS_PASSWORD_INPUT
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
