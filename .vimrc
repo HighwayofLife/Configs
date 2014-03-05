@@ -6,9 +6,10 @@ au BufNewFile,BufRead *.json* set filetype=javascript
 au BufNewFile,BufRead *.erb set filetype=ruby
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 
+" Automatically strip whitespace from the end of lines
 autocmd BufWritePre * :%s/\s\+$//e
 
-match Todo /\s\+$/
+" Highlight trailing whitespace
 
 " Highlight search results
 set hlsearch
@@ -43,7 +44,7 @@ set ignorecase
 set smartcase
 
 " Set F2 as the paste toggle key for pasting from clipboard
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 
 " gVim: Allow all operations such as yy, D, and P to work with the clipboard. No need to prefix with "* or "+.
 " set clipboard=unnamed
@@ -58,7 +59,7 @@ set history=100
 set laststatus=2
 
 " Enable full mouse support in Vim console
-set mouse=a
+" set mouse=a
 
 " Enable a menu at the bottom of the vim window
 set wildmenu
@@ -74,4 +75,4 @@ vnoremap > >gv
 nnoremap <S-k> i<CR><Esc>
 
 " Load the PHP .vimrc settings
-autocmd FileType source ~/.vim/phprc.vim
+" autocmd FileType source ~/.vim/phprc.vim

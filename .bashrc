@@ -36,8 +36,8 @@ PROMPT_COMMAND='history -a'
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTFILESIZE=10000
-HISTSIZE=10000
+HISTFILESIZE=100000
+HISTSIZE=100000
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -46,18 +46,26 @@ alias egrep='egrep --color=auto'
 alias ll='ls -lAhp'
 alias la='ls -A'
 alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+alias ........='cd ../../../../../../../'
+alias .........='cd ../../../../../../../../'
 
 alias directory_tree="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias sed="/usr/local/bin/gsed"
 
 # Short command vi will open macvim if it exists, else it will alias to vim
-hash mvim 2>&- && { alias vi=mvim; } || { alias vi=vim; }
+#hash mvim 2>&- && { alias vi=mvim; } || { alias vi=vim; }
 
 # mvim command will return to the Terminal upon exit
-hash mvim 2>&- && { alias mvim='mvim --nomru -c "au VimLeave * !open -a Terminal"'; }
+#hash mvim 2>&- && { alias mvim='mvim --nomru -c "au VimLeave * !open -a Terminal"'; }
 
 hash tree 2>&- || { alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"; }
-hash hub 2>&- && { alias git=hub; }
+# hash hub 2>&- && { alias git=hub; }
 hash brew 2>&- && { . `brew --prefix`/etc/bash_completion; }
 
 case $TERM in
@@ -66,6 +74,9 @@ case $TERM in
    export GSTATUS=$(gitprompt.pl c=%[%e[38\;5\;10m u=%[%e[33m f=%[%e[38\;5\;15m statuscount=1)
     ;;
 esac
+
+#export VIMRUNTIME=/usr/local/share/vim/vim74
+export VIMRUNTIME=~/.vim/
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 export PATH=$PATH:$HOME/.drush/drush
@@ -81,3 +92,4 @@ read -s OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
