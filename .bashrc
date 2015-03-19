@@ -10,7 +10,11 @@ parse_git_branch() {
 	fi
 }
 
-export PS1='\[\e[1;37m\][\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;37m\]]$(parse_git_branch)$ \[\e[0m\]'
+shorten_dir() {
+  echo $(perl -pl0 -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PWD})
+}
+
+export PS1='\[\e[1;37m\][\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]$(shorten_dir)\[\e[1;37m\]]$(parse_git_branch)$ \[\e[0m\]'
 
 pgrep() {
 	ps aux | grep $1 | grep -v grep
@@ -79,17 +83,18 @@ esac
 export VIMRUNTIME=~/.vim/
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
-export PATH=$PATH:$HOME/.drush/drush
-export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$(brew --prefix ruby)/bin:$PATH
+# export PATH=$PATH:$HOME/.drush/drush
+# export PATH=$PATH:/usr/local/share/npm/bin
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export OS_USERNAME=lewid090
 
 # With Keystone you pass the keystone password.
-echo "Please enter your OpenStack Password: "
-read -s OS_PASSWORD_INPUT
-export OS_PASSWORD=$OS_PASSWORD_INPUT
+# echo "Please enter your OpenStack Password: "
+# read -s OS_PASSWORD_INPUT
+# export OS_PASSWORD=$OS_PASSWORD_INPUT
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
