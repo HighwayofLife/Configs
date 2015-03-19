@@ -79,8 +79,8 @@ case $TERM in
     ;;
 esac
 
-#export VIMRUNTIME=/usr/local/share/vim/vim74
-export VIMRUNTIME=~/.vim/
+export VIMRUNTIME=/usr/local/share/vim/vim74
+#export VIMRUNTIME=~/.vim/
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 export PATH=$(brew --prefix ruby)/bin:$PATH
