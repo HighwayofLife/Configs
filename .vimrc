@@ -2,9 +2,10 @@ syntax on
 
 filetype on
 au BufNewFile,BufRead *.bkp set filetype=php
-au BufNewFile,BufRead *.json* set filetype=javascript
+" au BufNewFile,BufRead *.json* set filetype=javascript
 au BufNewFile,BufRead *.erb set filetype=ruby
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
+au BufNewFile,BufRead *.groovy setf groovy
 
 " Automatically strip whitespace from the end of lines
 autocmd BufWritePre * :%s/\s\+$//e
@@ -73,6 +74,8 @@ vnoremap > >gv
 
 " Remap shift+k to split the text from the current line
 nnoremap <S-k> i<CR><Esc>
+inoremap <C-l> <Esc>
+inoremap ;; <Esc>
 
 " Load the PHP .vimrc settings
 " autocmd FileType source ~/.vim/phprc.vim
