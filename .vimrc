@@ -76,6 +76,7 @@ vnoremap > >gv
 nnoremap <S-k> i<CR><Esc>
 inoremap <C-l> <Esc>
 inoremap ;; <Esc>
+map ;; <Esc>
 
 " Load the PHP .vimrc settings
 " autocmd FileType source ~/.vim/phprc.vim
