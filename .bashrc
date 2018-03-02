@@ -89,8 +89,6 @@ export PATH=$(brew --prefix ruby)/bin:$PATH
 
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-export OS_USERNAME=lewid090
-
 # With Keystone you pass the keystone password.
 # echo "Please enter your OpenStack Password: "
 # read -s OS_PASSWORD_INPUT
