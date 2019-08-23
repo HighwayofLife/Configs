@@ -5,6 +5,8 @@ au BufNewFile,BufRead *.bkp set filetype=php
 " au BufNewFile,BufRead *.json* set filetype=javascript
 au BufNewFile,BufRead *.erb set filetype=ruby
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
+au BufNewFile,BufRead Makefile set filetype=make
+au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 au BufNewFile,BufRead *.groovy setf groovy
 
 " Automatically strip whitespace from the end of lines
@@ -18,11 +20,10 @@ set hlsearch
 set expandtab
 set copyindent
 set preserveindent
-set softtabstop=0
+set softtabstop=2 "Makes the spaces feel like real tabs
 set shiftwidth=2
 set tabstop=2
 
-set softtabstop=2 "Makes the spaces feel like real tabs
 
 set autoindent
 set number
@@ -80,3 +81,6 @@ map ;; <Esc>
 
 " Load the PHP .vimrc settings
 " autocmd FileType source ~/.vim/phprc.vim
+
+autocmd FileType make setlocal noexpandtab
+autocmd FileType make setlocal tabstop=4
